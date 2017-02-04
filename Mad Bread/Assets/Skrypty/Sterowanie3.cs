@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Sterowanie3 : MonoBehaviour {
-	public float speed = 0.0f;
+	public static float speed = 0.0f;
 	public float MaxSpeed;
 	public float MinSpeed;
 
