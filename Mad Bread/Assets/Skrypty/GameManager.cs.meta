@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 1860ba5e5c684804d9780c7b78343846
-timeCreated: 1484680266
+guid: 40088c0d9893a914da6a92e4cdb191c4
+timeCreated: 1486226437
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences:
-  - chleb: {fileID: 1000013343249698, guid: 29da0e6f4af81d34992874190b32dd6d, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

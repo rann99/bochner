@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Gracz1
+  - Gracz2
+  - "Mas\u0142o"
   layers:
   - Default
   - TransparentFX

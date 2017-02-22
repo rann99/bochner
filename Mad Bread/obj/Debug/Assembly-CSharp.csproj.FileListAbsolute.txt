@@ -21,3 +21,9 @@ D:\Unity Projekty\Mad Bread\Temp\bin\Debug\UnityEngine.Analytics.xml
 D:\Unity Projekty\Mad Bread\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 D:\Unity Projekty\Mad Bread\obj\Debug\Assembly-CSharp.dll
 D:\Unity Projekty\Mad Bread\obj\Debug\Assembly-CSharp.pdb
+D:\Unity Projekty\Mad Bread\Temp\bin\Debug\UnityEngine.HoloLens.dll
+D:\Unity Projekty\Mad Bread\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.dll
+D:\Unity Projekty\Mad Bread\Temp\bin\Debug\UnityEngine.VR.dll
+D:\Unity Projekty\Mad Bread\Temp\bin\Debug\UnityEngine.PlaymodeTestsRunner.xml
+D:\Unity Projekty\Mad Bread\Temp\bin\Debug\UnityEngine.HoloLens.xml
+D:\Unity Projekty\Mad Bread\Temp\bin\Debug\UnityEngine.VR.xml
