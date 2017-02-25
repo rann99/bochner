@@ -7,6 +7,7 @@ public class SterowanieGracz1 : MonoBehaviour {
 	public float MinSpeed;
 	public float SzybkośćObrotu = 80.0f;
 	public bool start = false;
+	public bool naTrasie = true;
 
 	void Start () {
 		
@@ -75,5 +76,19 @@ public class SterowanieGracz1 : MonoBehaviour {
 			//Obracanie w lewo.
 			transform.Rotate (transform.up, -SzybkośćObrotu * Time.deltaTime, Space.World);
 		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		
+		if (other.tag == "Bounders")
+			naTrasie = false;
+	}
+
+	void OnTriggerStay(Collider other)
+	{
+
+		if (other.tag == "Bounders")
+			naTrasie = true;
 	}
 }
