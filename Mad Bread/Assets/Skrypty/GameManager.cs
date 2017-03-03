@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	public GUIText WyścigStart;
+	public GUIText Meta;
+
+
 	public GameObject gracz1p;
 	public GameObject gracz2p;
 
@@ -14,11 +17,13 @@ public class GameManager : MonoBehaviour {
 	private Quaternion rotacja1 = new Quaternion (0, 0, 0, 0);
 	private Quaternion rotacja2 = new Quaternion (0, 0, 0, 0);
 
+
 	void Awake()
 	{
 		gracz1 = GameObject.Find ("Gracz1");
 		gracz2 = GameObject.Find ("Gracz2");
 	}
+
 	void Start(){
 		StartCoroutine (Odliczanie ());
 	}
@@ -31,13 +36,23 @@ public class GameManager : MonoBehaviour {
 			Application.Quit();
 		}
 
+		if(GameObject.Find ("LiniaMety").GetComponent<CzyKtosWygral> ().WygralGracz1 == true){
+			Meta.text = "Wygrał gracz 1!";
+			GameObject.Find ("Gracz1").GetComponent<SterowanieGracz1> ().start = false;
+			GameObject.Find ("Gracz2").GetComponent<SterowanieGracz2> ().start = false;
+		}
+		if(GameObject.Find ("LiniaMety").GetComponent<CzyKtosWygral> ().WygralGracz2 == true){
+			Meta.text = "Wygrał gracz 2!";
+			GameObject.Find ("Gracz1").GetComponent<SterowanieGracz1> ().start = false;
+			GameObject.Find ("Gracz2").GetComponent<SterowanieGracz2> ().start = false;
+		}
+
 		StartCoroutine (UstawPozycje ());
 
 		if (gracz1.transform.position.y < -3f)
 			Respawn (gracz1,1);
 		if (gracz2.transform.position.y < -3f)
 			Respawn (gracz2,2);
-
 	}
 
 	IEnumerator Odliczanie(){
@@ -54,7 +69,7 @@ public class GameManager : MonoBehaviour {
 		GameObject.Find ("Gracz2").GetComponent<SterowanieGracz2> ().start = true;
 		WyścigStart.text = "";
 	}
-		
+
 
 	IEnumerator UstawPozycje()
 	{
@@ -70,9 +85,7 @@ public class GameManager : MonoBehaviour {
 
 			rotacja2 = gracz2.transform.rotation;
 		}
-
-
-
+			
 		yield return new WaitForSeconds (2);
 
 	}
@@ -93,6 +106,4 @@ public class GameManager : MonoBehaviour {
 		}
 
 	}
-		
-
 }

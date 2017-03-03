@@ -80,14 +80,14 @@ public class SterowanieGracz2 : MonoBehaviour {
 	void OnTriggerExit(Collider other)
 	{
 
-		if (other.tag == "Bounders")
+		if (other.tag == "Trasa")
 			naTrasie = false;
 	}
 
 	void OnTriggerStay(Collider other)
 	{
 
-		if (other.tag == "Bounders")
+		if (other.tag == "Trasa")
 			naTrasie = true;
 	}
 }
