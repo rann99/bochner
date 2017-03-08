@@ -13,6 +13,7 @@ public class CzyKtosWygral : MonoBehaviour {
 
 		if (other.gameObject.tag == "Gracz2") {
 			WygralGracz2 = true;
+
 		}
 	}
 }

@@ -18,14 +18,11 @@ public class GameManager : MonoBehaviour {
 	private Quaternion rotacja2 = new Quaternion (0, 0, 0, 0);
 
 
-	void Awake()
-	{
-		gracz1 = GameObject.Find ("Gracz1");
-		gracz2 = GameObject.Find ("Gracz2");
-	}
 
 	void Start(){
 		StartCoroutine (Odliczanie ());
+		gracz1 = GameObject.Find ("Gracz1");
+		gracz2 = GameObject.Find ("Gracz2");
 	}
 
 	void Update () {
@@ -50,9 +47,9 @@ public class GameManager : MonoBehaviour {
 		StartCoroutine (UstawPozycje ());
 
 		if (gracz1.transform.position.y < -3f)
-			Respawn (gracz1,1);
+			Resp (gracz1,1);
 		if (gracz2.transform.position.y < -3f)
-			Respawn (gracz2,2);
+			Resp (gracz2,2);
 	}
 
 	IEnumerator Odliczanie(){
@@ -73,15 +70,15 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator UstawPozycje()
 	{
-		if (gracz1.transform.position.y > 1.2f && gracz1.GetComponent<SterowanieGracz1>().naTrasie) 
+		if (gracz1.GetComponent<SterowanieGracz1>().naTrasie) 
 		{
-			pozycja1 = new Vector3 (gracz1.transform.position.x,1.4f,gracz1.transform.position.z);
+			pozycja1 = new Vector3 (gracz1.transform.position.x,2f,gracz1.transform.position.z);
 
 			rotacja1 = gracz1.transform.rotation;
 		}
-		if (gracz2.transform.position.y > 1.2f && gracz2.GetComponent<SterowanieGracz2>().naTrasie) 
+		if (gracz2.GetComponent<SterowanieGracz2>().naTrasie) 
 		{
-			pozycja2 = new Vector3 (gracz2.transform.position.x,1.4f,gracz2.transform.position.z);
+			pozycja2 = new Vector3 (gracz2.transform.position.x,2f,gracz2.transform.position.z);
 
 			rotacja2 = gracz2.transform.rotation;
 		}
@@ -90,7 +87,7 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	void Respawn(GameObject gracz, int n)
+	void Resp(GameObject gracz, int n)
 	{
 		Destroy (gracz);
 		if (n == 1) 
