@@ -7,3 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Sceny/ScenaTestowa.unity
+  - enabled: 1
+    path: Assets/Sceny/Menu.unity
+  - enabled: 1
+    path: Assets/Sceny/Generator.unity
+  - enabled: 1
+    path: Assets/Sceny/OnePlayer.unity

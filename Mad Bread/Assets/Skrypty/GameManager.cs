@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
 	void Awake()
 	{
-		gracz1 = GameObject.Find ("Chleb1");
+		gracz1 = GameObject.Find (gracz1p.name);
 		gracz2 = GameObject.Find ("Chleb2");
 	}
 
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
 			SceneManager.LoadScene (0);
 		}
 		if (Input.GetKey (KeyCode.Escape)) {
-			Application.Quit();
+			SceneManager.LoadScene ("Menu");
 		}
 
 		if(GameObject.Find ("LiniaMety").GetComponent<CzyKtosWygral> ().WygralGracz1 == true){
@@ -65,9 +65,10 @@ public class GameManager : MonoBehaviour {
 		yield return new WaitForSeconds(1);
 		WyścigStart.text = "START!";
 		yield return new WaitForSeconds(0.5f);
+		WyścigStart.text = "";
 		gracz1.GetComponent<SterowanieChleb1> ().start = true;
 		gracz2.GetComponent<SterowanieChleb2> ().start = true;
-		WyścigStart.text = "";
+
 	}
 
 
