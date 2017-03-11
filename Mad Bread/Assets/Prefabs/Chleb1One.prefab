@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 23292413797857576}
   - component: {fileID: 54808416790479992}
   - component: {fileID: 114037788166396894}
+  - component: {fileID: 114624439154036206}
   m_Layer: 0
   m_Name: Chleb1One
   m_TagString: Gracz1
@@ -70,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1711492169482180}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.48, y: 1, z: -14.895998}
+  m_LocalPosition: {x: -4.48, y: 0.36, z: -14.895998}
   m_LocalScale: {x: 2, y: 2.7, z: 2.15}
   m_Children:
   - {fileID: 4270989934990382}
@@ -162,7 +163,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!65 &65508706257280854
 BoxCollider:
@@ -196,7 +197,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1711492169482180}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 870be1beb2c2ec342b8b3eaf5becd49c, type: 3}
   m_Name: 
@@ -207,6 +208,19 @@ MonoBehaviour:
   "Szybko\u015B\u0107Obrotu": 55
   start: 0
   naTrasie: 1
+--- !u!114 &114624439154036206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1711492169482180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924c8f9db3b6a5b4ba2e1cc7441d1442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  turnSpeed: 70
 --- !u!124 &124130172101980916
 Behaviour:
   m_ObjectHideFlags: 1

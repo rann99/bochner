@@ -643,7 +643,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4593649122401278, guid: 5d1d73603098976428c63d42de5ca2c0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 4593649122401278, guid: 5d1d73603098976428c63d42de5ca2c0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -840,8 +840,8 @@ MonoBehaviour:
   - {fileID: 1171889281940058, guid: cc6a735c97705d4428d8475874a73d6f, type: 2}
   - {fileID: 1270505575755862, guid: cb865b70a3f15fc47adc455fb4b75883, type: 2}
   - {fileID: 1201899994570854, guid: de12cf7087a6d3b409071d5056e820df, type: 2}
-  iloscSegmentow: 5
-  szansaZakretu: 80
+  iloscSegmentow: 20
+  szansaZakretu: 50
   meta: {fileID: 1231499934549786, guid: 9703dc722b93b124fbe687acde4e2c76, type: 2}
 --- !u!4 &1566609346
 Transform:
