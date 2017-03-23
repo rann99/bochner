@@ -12,10 +12,22 @@ public class SterowanieGracz2 : MonoBehaviour {
 	void Start () {
 	}
 
-	void Update() {
+	void OnCollisionEnter (Collision other){
+		if (other.gameObject.tag == "Przeszkoda") {
+			if (speed > 20.0f) {
+				speed = 20f;
+			}
+			if (speed > 0.0f) {
+				speed -= 2.0f;
+			}
+		}
+	}
+
+	void FixedUpdate() {
 		if (start == true) {
 			MoveCharacter ();
 			RotateCharacter ();
+			SpeedoMeter ();
 		}
 
 		transform.eulerAngles= new Vector3(transform.eulerAngles.x,transform.eulerAngles.y,0); //Chleb nie może się przewrócić na boki.
@@ -63,17 +75,29 @@ public class SterowanieGracz2 : MonoBehaviour {
 	//Obracanie gracza.
 	void RotateCharacter()
 	{
-		//Jeżeli gracz naciśnie strzałkę w prawo.
-		if (Input.GetKey (KeyCode.RightArrow))
-		{
-			//Obracanie w prawo.
-			transform.Rotate (transform.up, SzybkośćObrotu * Time.deltaTime, Space.World);
-		}
-		//Jeżeli gracz naciśnie strzałkę w lewo.
-		if (Input.GetKey(KeyCode.LeftArrow))
-		{
-			//Obracanie w lewo.
-			transform.Rotate (transform.up, -SzybkośćObrotu * Time.deltaTime, Space.World);
+		if (speed >= 0.0f) {
+			//Jeżeli gracz naciśnie strzałkę w prawo.
+			if (Input.GetKey (KeyCode.RightArrow)) {
+				//Obracanie w prawo.
+				transform.Rotate (transform.up, SzybkośćObrotu * Time.deltaTime, Space.World);
+			}
+			//Jeżeli gracz naciśnie strzałkę w lewo.
+			if (Input.GetKey (KeyCode.LeftArrow)) {
+				//Obracanie w lewo.
+				transform.Rotate (transform.up, -SzybkośćObrotu * Time.deltaTime, Space.World);
+			}
+		} 
+		else { // Warunek, żeby w trakcie cofania nie obracał się w lewo, skręcając w prawo i odwrotnie. 
+			//Jeżeli gracz naciśnie strzałkę w lewo.
+			if (Input.GetKey (KeyCode.LeftArrow)) {
+				//Obracanie w lewo.
+				transform.Rotate (transform.up, SzybkośćObrotu * Time.deltaTime, Space.World);
+			}
+			//Jeżeli gracz naciśnie strzałkę w prawo.
+			if (Input.GetKey (KeyCode.RightArrow)) {
+				//Obracanie w prawo.
+				transform.Rotate (transform.up, -SzybkośćObrotu * Time.deltaTime, Space.World);
+			}
 		}
 	}
 
@@ -89,5 +113,9 @@ public class SterowanieGracz2 : MonoBehaviour {
 
 		if (other.tag == "Trasa")
 			naTrasie = true;
+	}
+	void SpeedoMeter()
+	{
+		SpeedometerGracz2.ShowSpeed (speed, 0, 30);
 	}
 }

@@ -11,7 +11,7 @@ public class PozycjaG2 : MonoBehaviour
 
     void Update()
     {
-        if (i == 1) DystansStart = Vector3.Distance(GameObject.Find("Chleb2").transform.position, GameObject.Find("LiniaMety").transform.position);
+		if (i == 1) DystansStart = Vector3.Distance(GameObject.FindGameObjectWithTag("Gracz2").transform.position, GameObject.Find("LiniaMety").transform.position);
         i = 2;
         gracz2 = GameObject.FindGameObjectWithTag("Gracz2");
         dystans = Vector3.Distance(GameObject.Find(gracz2.name).transform.position, GameObject.Find("LiniaMety").transform.position);

@@ -147,6 +147,11 @@ public class Generator : MonoBehaviour {
 			}
 
 			segment.transform.Rotate(katProsty);
+			Debug.Log (segment.transform.localEulerAngles.y);
+			Vector3 metaY = new Vector3 (0f, 180f, 0f);
+			if(segment.transform.eulerAngles.y > 179f || segment.transform.eulerAngles.y < -179f)
+				segment.transform.Rotate (metaY);
+
 		}
 	}
 }

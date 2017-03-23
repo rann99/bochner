@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 	void Awake()
 	{
 		gracz1 = GameObject.Find (gracz1p.name);
-		gracz2 = GameObject.Find ("Chleb2");
+		gracz2 = GameObject.Find (gracz2p.name);
 	}
 
 	void Start(){
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetKey (KeyCode.R)) {
-			SceneManager.LoadScene (0);
+			SceneManager.LoadScene ("Generator");
 		}
 		if (Input.GetKey (KeyCode.Escape)) {
 			SceneManager.LoadScene ("Menu");
@@ -38,13 +38,13 @@ public class GameManager : MonoBehaviour {
 
 		if(GameObject.Find ("LiniaMety").GetComponent<CzyKtosWygral> ().WygralGracz1 == true){
 			Meta.text = "Wygrał gracz 1!";
-			gracz1.GetComponent<SterowanieChleb1> ().start = false;
-			gracz2.GetComponent<SterowanieChleb2> ().start = false;
+			gracz1.GetComponent<SterowanieGracz1> ().start = false;
+			gracz2.GetComponent<SterowanieGracz2> ().start = false;
 		}
 		if(GameObject.Find ("LiniaMety").GetComponent<CzyKtosWygral> ().WygralGracz2 == true){
 			Meta.text = "Wygrał gracz 2!";
-			gracz1.GetComponent<SterowanieChleb1> ().start = false;
-			gracz2.GetComponent<SterowanieChleb2> ().start = false;
+			gracz1.GetComponent<SterowanieGracz1> ().start = false;
+			gracz2.GetComponent<SterowanieGracz2> ().start = false;
 		}
 
 		StartCoroutine (UstawPozycje ());
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour {
 		if (gracz2.transform.position.y < -3f)
 			Resp (gracz2,2);
 	}
+
 
 	IEnumerator Odliczanie(){
 		yield return new WaitForSeconds(1);
@@ -66,21 +67,21 @@ public class GameManager : MonoBehaviour {
 		WyścigStart.text = "START!";
 		yield return new WaitForSeconds(0.5f);
 		WyścigStart.text = "";
-		gracz1.GetComponent<SterowanieChleb1> ().start = true;
-		gracz2.GetComponent<SterowanieChleb2> ().start = true;
+		gracz1.GetComponent<SterowanieGracz1> ().start = true;
+		gracz2.GetComponent<SterowanieGracz2> ().start = true;
 
 	}
 
 
 	IEnumerator UstawPozycje()
 	{
-		if (gracz1.GetComponent<SterowanieChleb1>().naTrasie) 
+		if (gracz1.GetComponent<SterowanieGracz1>().naTrasie) 
 		{
 			pozycja1 = new Vector3 (gracz1.transform.position.x,2f,gracz1.transform.position.z);
 
 			rotacja1 = gracz1.transform.rotation;
 		}
-		if (gracz2.GetComponent<SterowanieChleb2>().naTrasie) 
+		if (gracz2.GetComponent<SterowanieGracz2>().naTrasie) 
 		{
 			pozycja2 = new Vector3 (gracz2.transform.position.x,2f,gracz2.transform.position.z);
 
@@ -97,13 +98,13 @@ public class GameManager : MonoBehaviour {
 		if (n == 1) 
 		{
 			gracz1 = Instantiate (gracz1p, pozycja1, rotacja1);
-			gracz1.GetComponent<SterowanieChleb1> ().start = true;
+			gracz1.GetComponent<SterowanieGracz1> ().start = true;
 
 		}
 		if (n == 2)
 		{
 			gracz2 = Instantiate (gracz2p, pozycja2, rotacja2);
-			gracz2.GetComponent<SterowanieChleb2> ().start = true;
+			gracz2.GetComponent<SterowanieGracz2> ().start = true;
 		}
 
 	}

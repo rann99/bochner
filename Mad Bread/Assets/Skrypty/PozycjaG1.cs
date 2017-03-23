@@ -12,10 +12,10 @@ public class PozycjaG1 : MonoBehaviour
 
     void Update()
     {
-        if(i==1) DystansStart = Vector3.Distance(GameObject.Find("Chleb1").transform.position, GameObject.Find("LiniaMety").transform.position);
+		if(i==1) DystansStart = Vector3.Distance(GameObject.FindGameObjectWithTag("Gracz1").transform.position, GameObject.Find("LiniaMety").transform.position);
         i = 2;
         gracz1 = GameObject.FindGameObjectWithTag("Gracz1");
-        dystans = Vector3.Distance(GameObject.Find(gracz1.name).transform.position, GameObject.Find("LiniaMety").transform.position);
+		dystans = Vector3.Distance(GameObject.Find(gracz1.name).transform.position, GameObject.FindGameObjectWithTag("Finish").transform.position);
         różnica = 498 * (1 - dystans / DystansStart);
         pochodna = (float)różnica - (float)stara;
         stara = różnica;

@@ -8,6 +8,7 @@ TagManager:
   - Gracz2
   - "Mas\u0142o"
   - Trasa
+  - Przeszkoda
   layers:
   - Default
   - TransparentFX

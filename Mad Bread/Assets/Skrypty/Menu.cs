@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class Menu : MonoBehaviour {
 
@@ -17,6 +16,6 @@ public class Menu : MonoBehaviour {
 	}
 	public void LoadScene(string scena)
 	{
-		SceneManager.LoadScene (scena);
+		SceneManager.LoadScene ("Generator");
 	}
 }
